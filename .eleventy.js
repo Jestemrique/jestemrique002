@@ -24,6 +24,14 @@ module.exports = eleventyConfig => {
     
     eleventyConfig.addFilter("debug", (content) => `${JSON.stringify(content, null , 4)}`);
 
+
+    // Create a collection that filters content based on locale
+    eleventyConfig.addCollection("contentByLocale", function(collectionApi) {
+            return function(locale) {
+                return collectionApi.getAll().filter((item) => item.data.locale === locale);
+            };
+    });
+
     return {
         dir: {
             input: 'src',
@@ -33,3 +41,4 @@ module.exports = eleventyConfig => {
         htmlTemplateEngine: 'njk'
     };
 };
+
