@@ -5,6 +5,7 @@ tags:
   - javascript
 publicTags: 
   - javascript
+translationKey: 'this-post-001'
 date: 2024-02-21
 draft: false
 ---

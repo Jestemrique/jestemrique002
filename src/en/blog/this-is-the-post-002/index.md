@@ -1,12 +1,13 @@
 ---
 title: 'This is the post 002'
 tags: 
-  - post
+  - posts
   - 'web development'
   - javascript
 publicTags: 
   - 'web development'
   - 'javascript'
+translationKey: 'this-post-002'
 date: 2023-01-18
 draft: false
 ---

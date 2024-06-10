@@ -1,5 +1,5 @@
 ---
-title: 'This is the post 003'
+title: 'Este es el artículo 003'
 tags: 
   - post
   - 11ty
