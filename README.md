@@ -1,5 +1,5 @@
-# 11ty-template-multilang-001
-Basic 11ty site to act as a template.
+# Jestemrique002
+Basic personal site built with 11ty v002
 
 ## Steps
 1. Clone repo
@@ -25,4 +25,3 @@ CSS Bootstrap 5.3 Sass styling
 - Tags support
 - Pagination
 
-# jestemrique002
