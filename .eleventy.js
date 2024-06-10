@@ -18,6 +18,10 @@ module.exports = eleventyConfig => {
     eleventyConfig.addCollection('blog_en', getBlogsEN);
 
     eleventyConfig.addPlugin(require('./config/custom-filters.js'));
+
+    //Custom markdown for images
+    eleventyConfig.addPlugin(require('./config/custom-markdown-rules.js'));
+    
     eleventyConfig.addFilter("debug", (content) => `${JSON.stringify(content, null , 4)}`);
 
     return {
