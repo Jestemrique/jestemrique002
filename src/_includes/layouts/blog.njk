@@ -3,6 +3,9 @@
 {% block main_content %}
 {{ content | safe }}
 
+LANGUAGE
+{{ page.lang }}
+
 {% set postslist = "blog_" + page.lang %} 
 {% for post in collections[postslist] %} 
 <a      class="
