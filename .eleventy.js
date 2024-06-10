@@ -18,7 +18,20 @@ module.exports = eleventyConfig => {
     eleventyConfig.addCollection('blog_en', getBlogsEN);
 
     eleventyConfig.addPlugin(require('./config/custom-filters.js'));
+
+    //Custom markdown for images
+    eleventyConfig.addPlugin(require('./config/custom-markdown-rules.js'));
+    
     eleventyConfig.addFilter("debug", (content) => `${JSON.stringify(content, null , 4)}`);
+
+    // Create a collection that filters content based on locale
+    eleventyConfig.addCollection("contentByLocale", collectionApi => 
+        locale => 
+            collectionApi.getAll().filter((item) => item.data.locale === locale)
+    );
+
+
+
 
     return {
         dir: {
@@ -29,3 +42,4 @@ module.exports = eleventyConfig => {
         htmlTemplateEngine: 'njk'
     };
 };
+

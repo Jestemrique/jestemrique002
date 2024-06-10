@@ -22,7 +22,7 @@
                   rounded-3
                   shadow
                   " 
-           src="https://placehold.co/250x250" 
+           src="/assets/images/profile-pic-250x250.png" 
            alt="Header Image">
     </div>
     
@@ -74,37 +74,33 @@
                 href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram  fa-xl"></i></a>
 
       </span>
-
-        {# <nav class="ep-language-menu">
-          <a href="{{ page.url }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
-            {{ page.lang | upper }}
-          </a>
-
-          {% for link in page.url | locale_links %}
-          <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
-            {{ link.lang | upper }}</a>
-          {% endfor %}
-        </nav> #}
-    
     </div>
 
+{%- if locale == 'en' -%}
+{%- set otherLocale = 'es' -%}
+{%- else -%}
+{%- set otherLocale = 'en' -%}
+{%- endif -%}
 
-        <div>
-      <nav class="ep-language-menu">
-        {% for link in page.url | locale_links %}
-        <a class="link-secondary link-underline-opacity-0" href="{{ link.url }}" lang="{{ link.lang }}"
-          hreflang="{{ link.lang }}">
-          {%- if link.lang == "en" %}
-          <img src="/assets/images/uk-icon.png" alt="English">
-          {%- endif -%}
-          {%- if link.lang == "es" %}
-          <img src="/assets/images/sp-icon.png" alt="Español">
-          {%- endif -%}
-
-        </a>
-        {% endfor %}
-      </nav>
-    </div>
+{% set otherLocaleContent = collections.contentByLocale(otherLocale) %}
+{%- if translationKey -%}
+<div>
+  <nav class="ep-language-menu">
+    {%- for otherContent in otherLocaleContent -%}
+    {%- if otherContent.data.translationKey == translationKey -%}
+    <a href="{{ otherContent.url }}">
+      {%- if otherContent.data.locale == "en" %}
+      <img src="/assets/images/uk-icon.png" alt="English">
+      {%- endif -%}
+      {%- if otherContent.data.locale == "es" %}
+      <img src="/assets/images/sp-icon.png" alt="Español">
+      {%- endif -%}
+    </a>
+    {%- endif -%}
+    {%- endfor -%}
+  </nav>
+</div>
+{%- endif -%}
 
 </div>
 
