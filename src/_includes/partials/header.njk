@@ -74,136 +74,33 @@
                 href="https://www.instagram.com" target="_blank"><i class="fa-brands fa-instagram  fa-xl"></i></a>
 
       </span>
-
-        {# <nav class="ep-language-menu">
-          <a href="{{ page.url }}" lang="{{ page.lang }}" hreflang="{{ page.lang }}">
-            {{ page.lang | upper }}
-          </a>
-
-          {% for link in page.url | locale_links %}
-          <a href="{{ link.url }}" lang="{{ link.lang }}" hreflang="{{ link.lang }}">
-            {{ link.lang | upper }}</a>
-          {% endfor %}
-        </nav> #}
-    
     </div>
 
-
-        {# <div>
-          <nav class="ep-language-menu">
-            {% for link in page.url | locale_links %}
-            <a class="link-secondary link-underline-opacity-0" href="{{ link.url }}" lang="{{ link.lang }}"
-              hreflang="{{ link.lang }}">
-              {%- if link.lang == "en" %}
-              <img src="/assets/images/uk-icon.png" alt="English">
-              {%- endif -%}
-              {%- if link.lang == "es" %}
-              <img src="/assets/images/sp-icon.png" alt="Español">
-              {%- endif -%}
-            </a>
-            {% endfor %}
-          </nav>
-        </div> #}
-
-{# PAGE: {{ page | debug }}
- {{ translationKey }} {{ locale }} #}
-
-
 {%- if locale == 'en' -%}
-    {%- set otherLocale = 'es' -%}
+{%- set otherLocale = 'es' -%}
 {%- else -%}
-    {%- set otherLocale = 'en' -%}
+{%- set otherLocale = 'en' -%}
 {%- endif -%}
-{# <pre> PAGE: {{ page | debug }} </pre> </br> #}
-{# LOCALE: {{ locale }} </br>
-OTHER LOCALE: {{ otherLocale}}  </br>
-translation key: {{ translationKey }}  </br> #}
-
 
 {% set otherLocaleContent = collections.contentByLocale(otherLocale) %}
-{# <ul>
-  {% for item in otherLocaleContent %}
-    <li><a href="{{ item.url }}">{{ item.data.title }} - {{ item.data.locale}}</a></li>
-  {% endfor %}
-</ul> #}
-
 {%- if translationKey -%}
+<div>
+  <nav class="ep-language-menu">
     {%- for otherContent in otherLocaleContent -%}
-        {%- if otherContent.data.translationKey == translationKey -%}
-            <p class="is-translation-link noprint">
-                <a  href="{{ otherContent.url }}">
-                                {%- if otherContent.data.locale == "en" %}
-                                <img src="/assets/images/uk-icon.png" alt="English">
-                                {%- endif -%}
-                                {%- if otherContent.data.locale == "es" %}
-                                <img src="/assets/images/sp-icon.png" alt="Español">
-                                {%- endif -%}
-                  
-                  </a>
-            </p>
-        {%- endif -%}
+    {%- if otherContent.data.translationKey == translationKey -%}
+    <a href="{{ otherContent.url }}">
+      {%- if otherContent.data.locale == "en" %}
+      <img src="/assets/images/uk-icon.png" alt="English">
+      {%- endif -%}
+      {%- if otherContent.data.locale == "es" %}
+      <img src="/assets/images/sp-icon.png" alt="Español">
+      {%- endif -%}
+    </a>
+    {%- endif -%}
     {%- endfor -%}
+  </nav>
+</div>
 {%- endif -%}
-
-
-*****************************************</br>
-
-
-
-*****************************************</br>
-
-{% set locale = page.lang %}
-{% set localizedContent = collections.contentByLocale(locale) %}
-<ul>
-  {% for item in localizedContent %}
-    <li><a href="{{ item.url }}">{{ item.data.title }} - {{ item.data.locale}}</a></li>
-  {% endfor %}
-</ul>
-
-
-
-
-
-
-{# {%- if translationKey -%}
-    {%- for otherPost in collections["blog_" + otherLocale] -%}
-        {%- if otherPost.data.translationKey == translationKey -%}
-            <p >
-                <a class="link-secondary link-underline-opacity-0" href="{{ otherPost.url }}">
-                  available in: {{otherLocale}}
-
-                  {%- if otherPost.lang == "en" %}
-                      <img src="/assets/images/uk-icon.png" alt="English">
-                      {%- endif -%}
-                      {%- if otherPost.lang == "es" %}
-                      <img src="/assets/images/sp-icon.png" alt="Español">
-                      {%- endif -%}
-                </a>
-            </p>
-        {%- endif -%}
-    {%- endfor -%}
-{%- endif -%} #}
-
-
-
-
-
-
-                {# <div>
-                  <nav class="ep-language-menu">
-                    {% for link in page.url | locale_links %}
-                    <a class="link-secondary link-underline-opacity-0" href="{{ link.url }}" lang="{{ link.lang }}"
-                      hreflang="{{ link.lang }}">
-                      {%- if link.lang == "en" %}
-                      <img src="/assets/images/uk-icon.png" alt="English">
-                      {%- endif -%}
-                      {%- if link.lang == "es" %}
-                      <img src="/assets/images/sp-icon.png" alt="Español">
-                      {%- endif -%}
-                    </a>
-                    {% endfor %}
-                  </nav>
-                </div> #}
 
 </div>
 
