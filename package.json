@@ -18,6 +18,7 @@
     "@11ty/eleventy": "^2.0.1"
   },
   "dependencies": {
+    "@11ty/eleventy-plugin-syntaxhighlight": "^5.0.0",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.5",
     "eleventy-plugin-i18n": "^0.1.3",
