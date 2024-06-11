@@ -18,6 +18,7 @@ module.exports = eleventyConfig => {
     eleventyConfig.addCollection('blog_en', getBlogsEN);
 
     eleventyConfig.addPlugin(require('./config/custom-filters.js'));
+    eleventyConfig.addPlugin(require('./config/custom-syntax-highlighting.js'));
 
     //Custom markdown for images
     eleventyConfig.addPlugin(require('./config/custom-markdown-rules.js'));
