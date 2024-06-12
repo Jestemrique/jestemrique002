@@ -24,7 +24,7 @@ jobs:
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         with:
-          personal_token: ${{ secrets.REPO_JESTEMRIQUE_PAT }}
+          personal_token: ${{ secrets.REPO_JESTEMRIQUE_GITHUB_IO_PAT }}
           external_repository: jestemrique/jestemrique.github.io
           publish_branch: gh-pages
           publish_dir: ./_site
