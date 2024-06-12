@@ -1,0 +1,30 @@
+name: EP Jestemrique Eleventy Build
+on: 
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  build-deploy:
+    name: EP Build and deploy to gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git Checkout
+        uses: actions/checkout@master
+        
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - run: npm ci
+      
+      - run: npm run ep-build-all
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          personal_token: ${{ secrets.REPO_JESTEMRIQUE_PAT }}
+          external_repository: jestemrique/jestemrique.github.io
+          publish_branch: gh-pages
+          publish_dir: ./_site
