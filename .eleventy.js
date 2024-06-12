@@ -9,13 +9,14 @@ module.exports = eleventyConfig => {
 
 
     //Import collections
-    const {
-        getBlogsEN,
-        getBlogsES,
-      } = require('./config/collections/index.js');
+    //  const {
+    //     getBlogPostsLocale
+    // //     getBlogsEN,
+    // //     getBlogsES,
+    //    } = require('./config/collections/index.js');
 
     //Custom Collections
-    eleventyConfig.addCollection('blog_en', getBlogsEN);
+    //eleventyConfig.addCollection('blog_en', getBlogsEN);
 
     eleventyConfig.addPlugin(require('./config/custom-filters.js'));
     eleventyConfig.addPlugin(require('./config/custom-syntax-highlighting.js'));
@@ -30,6 +31,7 @@ module.exports = eleventyConfig => {
         locale => 
             collectionApi.getAll().filter((item) => item.data.locale === locale)
     );
+
 
 
 
